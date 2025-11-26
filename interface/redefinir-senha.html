@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Redefinir Senha</title>
+  <link rel="stylesheet" href="redefinir-senha.css" />
+</head>
+<body>
+  <div class="container">
+    <h1 class="titulo">Redefinir Senha</h1>
+
+    <form id="form-redefinir">
+      <input 
+        type="password" 
+        id="novaSenha" 
+        placeholder="Nova senha" 
+        required 
+      />
+
+      <input 
+        type="password" 
+        id="confirmarSenha" 
+        placeholder="Confirmar nova senha" 
+        required 
+      />
+
+      <button type="submit" id="btn-redefinir">
+        Redefinir
+      </button>
+
+      <p id="mensagem" class="erro"></p>
+    </form>
+
+    <p class="link-cadastro">
+      <a href="telalogin.html">Voltar ao Login</a>
+    </p>
+  </div>
+
+  <script src="redefinir-senha.js"></script>
+</body>
+</html>

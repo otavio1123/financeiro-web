@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Privacidade — Financeiro Web</title>
+  <link rel="stylesheet" href="politica.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Política de Privacidade — Financeiro Web</h1>
+    <p class="atualizacao">Última atualização: 03 de novembro de 2025</p>
+
+    <div class="conteudo">
+      <p>O <strong>Financeiro Web</strong> valoriza a privacidade e a segurança das informações de seus usuários.
+      Esta Política de Privacidade descreve como coletamos, usamos, armazenamos e protegemos seus dados pessoais em conformidade com a Lei Geral de Proteção de Dados Pessoais (LGPD – Lei nº 13.709/2018).</p>
+
+      <h2>1. Dados coletados</h2>
+      <p>O Financeiro Web coleta apenas os dados necessários para o funcionamento da plataforma:</p>
+      <ul>
+        <li><strong>Informações cadastrais:</strong> nome, e-mail e senha (armazenada de forma criptografada);</li>
+        <li><strong>Informações financeiras:</strong> registros de contas, valores, descrições e datas de lançamentos;</li>
+        <li><strong>Dados de uso:</strong> endereço IP e informações técnicas básicas de acesso (data/hora, navegador, sistema operacional);</li>
+        <li><strong>E-mails:</strong> endereço usado para envio de mensagens automáticas, como redefinição de senha.</li>
+      </ul>
+
+      <h2>2. Finalidade do tratamento</h2>
+      <p>Os dados são utilizados para:</p>
+      <ul>
+        <li>Criar e gerenciar sua conta de acesso;</li>
+        <li>Permitir login seguro e autenticação com token (JWT);</li>
+        <li>Registrar e exibir suas informações financeiras pessoais;</li>
+        <li>Enviar e-mails de suporte e recuperação de senha;</li>
+        <li>Cumprir obrigações legais e de segurança.</li>
+      </ul>
+      <p>O Financeiro Web não realiza envio de mensagens publicitárias ou marketing sem consentimento prévio.</p>
+
+      <h2>3. Armazenamento e segurança</h2>
+      <p>Os dados são armazenados em banco de dados <strong>MongoDB</strong> protegido e acessível apenas por administradores autorizados.</p>
+      <p>Senhas são criptografadas com <strong>bcrypt</strong> e nunca armazenadas em texto puro.</p>
+      <p>A comunicação entre frontend e backend utiliza protocolos seguros (HTTPS em produção).</p>
+      <p>Tokens de autenticação (JWT) têm prazo de validade limitado e são armazenados apenas no navegador do usuário (localStorage).</p>
+      <p>Em caso de incidente de segurança, os usuários serão notificados conforme previsto na LGPD.</p>
+
+      <h2>4. Compartilhamento de dados</h2>
+      <p>O Financeiro Web <strong>não vende nem compartilha</strong> dados pessoais com terceiros, salvo nos casos de:</p>
+      <ul>
+        <li>Cumprimento de obrigação legal ou judicial;</li>
+        <li>Solicitação de autoridades competentes;</li>
+        <li>Proteção dos direitos e segurança do usuário ou da plataforma.</li>
+      </ul>
+
+      <h2>5. Direitos do titular dos dados</h2>
+      <p>De acordo com a LGPD, você tem o direito de:</p>
+      <ul>
+        <li>Confirmar se seus dados são tratados;</li>
+        <li>Solicitar acesso, correção ou exclusão dos seus dados;</li>
+        <li>Revogar o consentimento a qualquer momento;</li>
+        <li>Solicitar a portabilidade dos seus dados para outro serviço.</li>
+      </ul>
+      <p>Para exercer seus direitos, entre em contato pelo e-mail:<br>
+      <strong>📧 privacidade@financeiroweb.com.br</strong></p>
+
+      <h2>6. Retenção e exclusão de dados</h2>
+      <p>Os dados pessoais são mantidos apenas enquanto necessários para:</p>
+      <ul>
+        <li>Manter sua conta ativa, ou</li>
+        <li>Cumprir obrigações legais e de segurança.</li>
+      </ul>
+      <p>O usuário pode solicitar a exclusão completa de seus dados, o que implica na remoção de sua conta e histórico.</p>
+
+      <h2>7. Envio de e-mails automáticos</h2>
+      <p>O sistema envia e-mails somente para finalidades operacionais, como redefinição de senha ou notificações de segurança.  
+      Não são enviados e-mails promocionais ou de marketing.</p>
+
+      <h2>8. Alterações nesta política</h2>
+      <p>O Financeiro Web poderá atualizar esta Política de Privacidade periodicamente.  
+      Quando isso ocorrer, a data da última atualização será modificada e os usuários serão notificados em caso de mudanças relevantes.</p>
+
+      <h2>9. Contato</h2>
+      <p>Dúvidas, solicitações ou reclamações sobre esta Política de Privacidade podem ser enviadas para:<br>
+      <strong>📩 privacidade@financeiroweb.com.br</strong></p>
+
+      <h3>📘 Em resumo:</h3>
+      <ul>
+        <li>✅ Coleta apenas o necessário (nome, e-mail, senha, gastos)</li>
+        <li>🔐 Protege senhas e dados no MongoDB</li>
+        <li>🚫 Não compartilha dados com terceiros</li>
+      </ul>
+    </div>
+
+    <button id="btn-voltar">Voltar</button>
+  </div>
+
+  <script src="politica.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f5f7fa;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background-color: #0E2E1F;
+  padding: 30px 25px;
+  width: 90%;
+  max-width: 350px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.titulo {
+  margin-bottom: 25px;
+  color: #ddd;
+  font-size: 24px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border 0.3s ease;
+}
+
+input:focus {
+  border-color: #2980b9;
+  outline: none;
+}
+
+button {
+  padding: 12px;
+  background-color: #218838;;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #218838;;
+}
+
+.erro {
+  color: red;
+  font-size: 14px;
+  margin-top: -10px;
+}
+
+/* Link de cadastro */
+.link-cadastro {
+  margin-top: 15px;
+  font-size: 14px;
+  color:#ddd
+}
+
+.link-cadastro a {
+  color: #2980b9;
+  text-decoration: none;
+}
+
+.link-cadastro a:hover {
+  text-decoration: underline;
+}
+
+/* Link de recuperação de senha */
+.link-recuperar-senha {
+  margin-top: -10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.link-recuperar-senha a {
+  color: #2980b9;
+  text-decoration: none;
+}
+
+.link-recuperar-senha a:hover {
+  text-decoration: underline;
+}

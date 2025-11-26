@@ -1,0 +1,55 @@
+<!--Cadastro FinanceiroWeb-->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro - Financeiro App</title>
+  <link rel="stylesheet" href="cadastro.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Cadastro</h1>
+
+    <form id="form-cadastro">
+      <input type="text" id="nome" placeholder="Nome completo" required />
+      <input type="email" id="email" placeholder="Email" required />
+
+      <!-- Senha -->
+      <input
+        type="password"
+        id="senha"
+        placeholder="Senha"
+        required
+      />
+
+      <!-- Confirmar senha -->
+      <input
+        type="password"
+        id="confirmarSenha"
+        placeholder="Confirmar senha"
+        required
+      />
+
+      <!--  Aceite da Política de Privacidade -->
+      <label class="politica">
+        <input type="checkbox" id="aceitarPolitica" required />
+        <span>Li e aceito a</span>
+        <a href="politica.html" target="_blank">Política de Privacidade</a>
+      </label>
+      <!-- Fim do aceite -->
+
+      <button type="submit">Cadastrar</button>
+
+      <!-- Mensagem de erro geral (inclui erro de senha diferente) -->
+      <p id="mensagem-erro" class="erro"></p>
+    </form>
+
+    <p class="link-login">
+      Já tem conta? <a href="telalogin.html">Faça login</a>
+    </p>
+  </div>
+
+  <script src="cadastro.js"></script>
+</body>
+</html>

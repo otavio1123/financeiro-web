@@ -1,0 +1,35 @@
+
+
+<!DOCTYPE html> 
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Financeiro App</title>
+  <link rel="stylesheet" href="telalogin.css" />
+</head>
+<body>
+  <div class="container">
+    <h1 class="titulo">Financeiro App</h1>
+
+    <form id="form-login">
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="senha" placeholder="Senha" required />
+      
+      <button type="submit">Entrar</button>
+
+      <p class="link-recuperar-senha">
+        <a href="esqueci-senha.html">Esqueci minha senha?</a>
+      </p>
+
+      <p id="mensagem-erro" class="erro"></p>
+    </form>
+
+    <p class="link-cadastro">
+      Não tem conta? <a href="cadastro.html">Cadastre-se</a>
+    </p>
+  </div>
+
+  <script src="telalogin.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recuperar Senha</title>
+  <link rel="stylesheet" href="esqueci-senha.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Recuperar Senha</h1>
+
+    <form id="form-recuperar-senha">
+      <input 
+        type="email" 
+        id="email" 
+        placeholder="Digite seu email" 
+        required 
+        autocomplete="email"
+      />
+      <button type="submit" id="btn-enviar">Enviar</button>
+      <p id="mensagem" class="mensagem"></p>
+    </form>
+
+    <p class="voltar-login">
+      <a href="telalogin.html">← Voltar ao login</a>
+    </p>
+  </div>
+
+  <script src="esqueci-senha.js"></script>
+</body>
+</html>

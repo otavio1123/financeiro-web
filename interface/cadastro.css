@@ -1,0 +1,149 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Layout geral */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f5f7fa;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background-color: #0E2E1F;
+  padding: 30px 25px;
+  width: 90%;
+  max-width: 350px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Título da página de cadastro */
+.container h1 {
+  margin-bottom: 25px;
+  color: #ddd;
+  font-size: 24px;
+}
+
+/* Formulário */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border 0.3s ease;
+}
+
+input:focus {
+  border-color: #2980b9;
+  outline: none;
+}
+
+/* Botão */
+button {
+  padding: 12px;
+  background-color: #218838;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #1b6f30;
+}
+
+/* Mensagem de erro */
+.erro {
+  color: red;
+  font-size: 14px;
+  margin-top: -5px;
+}
+
+/* Link "Já tem conta? Faça login" */
+.link-login {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #ddd;
+}
+
+.link-login a {
+  color: #2980b9;
+  text-decoration: none;
+}
+
+.link-login a:hover {
+  text-decoration: underline;
+}
+
+/* ------------------------------
+   Aceite da Política de Privacidade
+------------------------------ */
+.politica {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  color: #ddd;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.politica input {
+  transform: scale(1.2);
+  margin-right: 8px;
+  accent-color: #28a745;
+}
+
+.politica a {
+  color: #C19C56;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.politica a:hover {
+  text-decoration: underline;
+  color: #e0b96d;
+}
+
+/* ------------------------------
+   Rodapé opcional com link fixo
+------------------------------ */
+footer {
+  position: fixed;
+  bottom: 15px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: #ccc;
+  font-size: 0.85rem;
+}
+
+footer a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+.politica span {
+  margin-right: 5px;
+}

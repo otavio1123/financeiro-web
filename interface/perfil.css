@@ -1,0 +1,247 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* CARD PRINCIPAL */
+.container {
+  background: #ffffff;
+  padding: 30px 25px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+  color: #333;
+}
+
+/* FOTO DE PERFIL */
+.foto-perfil {
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.foto-perfil label {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+
+.foto-perfil img {
+  width: 150px;              /* 🔹 maior */
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #007bff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+/* Efeito ao passar o mouse na foto */
+.foto-perfil label:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  border-color: #0056b3;
+}
+
+/* FORMULÁRIO */
+form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+label {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #444;
+  font-size: 0.9rem;
+}
+
+input {
+  padding: 9px 10px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
+input[disabled] {
+  background-color: #eee;
+  color: #666;
+}
+
+/* BOTÕES */
+.botoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+  justify-content: space-between;
+}
+
+button {
+  flex: 1 1 45%;
+  padding: 10px;
+  border: none;
+  background-color: #0066cc;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: background-color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+}
+
+button:hover {
+  background-color: #0052a3;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* Cores específicas */
+#btn-voltar {
+  background-color: #555;
+}
+#btn-voltar:hover {
+  background-color: #444;
+}
+
+#btn-logout {
+  background-color: #888;
+}
+#btn-logout:hover {
+  background-color: #777;
+}
+
+#btn-excluir {
+  background-color: #cc0000;
+}
+#btn-excluir:hover {
+  background-color: #a80000;
+}
+
+/* MENSAGEM */
+.mensagem {
+  text-align: center;
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* =============================== */
+/*      🔐  NOVO BLOCO SENHA       */
+/* =============================== */
+
+/* esconder/mostrar blocos */
+.hidden {
+  display: none;
+}
+
+/* linha da senha atual */
+.linha-senha-atual {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 5px 0 15px;
+}
+
+.linha-senha-atual input {
+  flex: 1;
+}
+
+#btn-confirmar-senha {
+  flex: 0 0 auto;
+  padding: 10px 14px;
+  background-color: #007bff;
+}
+#btn-confirmar-senha:hover {
+  background-color: #005bbd;
+}
+
+/* bloco nova senha (liberado só depois da senha atual ser confirmada) */
+#bloco-nova-senha {
+  margin-top: 10px;
+  padding: 10px;
+  background: #f8f9fc;
+  border: 1px solid #d3d7df;
+  border-radius: 8px;
+  animation: fadeIn 0.25s ease;
+}
+
+/* 🔹 labels dentro do bloco de nova senha em linha própria */
+#bloco-nova-senha label {
+  margin-top: 8px;
+  font-weight: bold;
+  color: #444;
+  font-size: 0.9rem;
+  display: block;      /* garante que "Nova senha" e "Confirmar nova senha" fiquem em cima do input */
+}
+
+/* animação ao surgir */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsivo */
+@media (max-width: 480px) {
+  .container {
+    padding: 20px 15px;
+  }
+
+  .foto-perfil img {
+    width: 130px;
+    height: 130px;
+  }
+
+  button {
+    flex: 1 1 100%;
+  }
+
+  .linha-senha-atual {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #btn-confirmar-senha {
+    width: 100%;
+  }
+}
+.btn-nova-senha {
+  margin-top: 12px;
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color .15s ease;
+}
+
+.btn-nova-senha:hover {
+  background-color: #005bbd;
+}

@@ -1,0 +1,386 @@
+/* ===============================
+   Variáveis de cores
+=============================== */
+:root {
+  --branco: #ffffff;
+  --cinza-escuro: #333333;
+  --verde: #4CAF50;
+  --verde-hover: #388E3C;
+  --vermelho: #f44336;
+  --vermelho-hover: #d32f2f;
+  --azul: #007BFF;
+}
+
+/* ===============================
+   Reset básico
+=============================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* ===============================
+   Body
+=============================== */
+body {
+  background-color: var(--branco);
+  color: var(--cinza-escuro);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 50px; /* espaço para não ficar atrás do rodapé */
+}
+
+/* ===============================
+   Cabeçalho
+=============================== */
+.cabecalho {
+  width: 100%;
+  padding: 20px;
+  background-color: var(--verde);
+  color: var(--branco);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cabecalho h1 {
+  font-size: 24px;
+}
+
+/* ===============================
+   Ícones flutuantes (Adicionar, Remover, Perfil)
+=============================== */
+.icones {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  gap: 15px;
+  z-index: 900;
+}
+
+.icones img {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid var(--verde);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  transition: transform 0.2s, border-color 0.2s;
+  object-fit: cover;
+}
+
+.icones img:hover {
+  transform: scale(1.15);
+  border-color: var(--verde-hover);
+}
+
+/* ===============================
+   Seção de navegação do mês
+=============================== */
+.navegacao-mes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  gap: 10px;
+}
+
+.navegacao-mes button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--verde);
+  color: var(--branco);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.navegacao-mes button:hover {
+  background-color: var(--verde-hover);
+}
+
+#mes-atual {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* ===============================
+   Lista de gastos
+=============================== */
+#lista-gastos {
+  max-width: 700px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.gasto-item, 
+.item-gasto {
+  background-color: #f9f9f9;
+  border-left: 5px solid var(--verde);
+  padding: 12px 16px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.acoes-gasto button {
+  background-color: var(--vermelho);
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.acoes-gasto button:hover {
+  background-color: var(--vermelho-hover);
+}
+
+/* ===============================
+   Modal de adicionar/remover gasto
+=============================== */
+#modal-adicionar-gasto,
+#modal-remover-gasto {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-escondido {
+  display: none !important;
+}
+
+.modal-conteudo {
+  background-color: var(--branco);
+  padding: 20px 30px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.modal-conteudo h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  text-align: center;
+}
+
+.modal-conteudo label {
+  display: block;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.modal-conteudo input,
+.modal-conteudo select {
+  width: 100%;
+  padding: 8px 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+.modal-conteudo .botoes {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.modal-conteudo button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.modal-conteudo button[type="submit"] {
+  background-color: var(--verde);
+  color: var(--branco);
+}
+
+.modal-conteudo button[type="submit"]:hover {
+  background-color: var(--verde-hover);
+}
+
+#btn-cancelar {
+  background-color: var(--vermelho);
+  color: var(--branco);
+}
+
+#btn-cancelar:hover {
+  background-color: var(--vermelho-hover);
+}
+
+/* ===============================
+   Modal remover gasto
+=============================== */
+#modal-remover-gasto .modal-conteudo {
+  max-width: 450px;
+}
+
+#modal-remover-gasto h2 {
+  color: var(--vermelho);
+}
+
+#lista-remover-gastos {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 15px;
+}
+
+#lista-remover-gastos::-webkit-scrollbar {
+  width: 6px;
+}
+
+#lista-remover-gastos::-webkit-scrollbar-thumb {
+  background-color: var(--vermelho);
+  border-radius: 3px;
+}
+
+#lista-remover-gastos::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+}
+
+.item-remover {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.item-remover button {
+  background-color: var(--vermelho);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.item-remover button:hover {
+  background-color: var(--vermelho-hover);
+}
+
+#btn-voltar-remover {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  background-color: #555;
+  color: white;
+  padding: 10px 20px;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#btn-voltar-remover:hover {
+  background-color: #333;
+}
+
+/* ===============================
+   Mensagens de vazio ou erro
+=============================== */
+.vazio, .erro {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  margin: 10px 0;
+}
+
+/* ===============================
+   Gráfico
+=============================== */
+.grafico-section {
+  max-width: 700px;
+  margin: 30px auto;
+  background-color: var(--branco);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.grafico-section h2 {
+  text-align: center;
+  color: var(--verde);
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+#graficoGastos {
+  display: block;
+  max-width: 100%;
+  height: 350px;
+}
+
+/* ===============================
+   Responsividade
+=============================== */
+@media (max-width: 480px) {
+  .modal-conteudo {
+    width: 95%;
+    padding: 15px 20px;
+  }
+
+  .icones img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .navegacao-mes button {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+
+  #lista-gastos, .grafico-section {
+    margin: 15px;
+  }
+}
+
+/* ===============================
+   Rodapé
+=============================== */
+.rodape {
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.rodape a {
+  color: #C19C56;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.rodape a:hover {
+  text-decoration: underline;
+  color: #e0b96d;
+}

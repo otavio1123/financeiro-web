@@ -12,10 +12,10 @@ const nodemailer = require('nodemailer');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const cors = require('cors');
-const multer = require('multer');      // ⬅️ AQUI
-const path = require('path');          // ⬅️ AQUI
+const multer = require('multer');      
+const path = require('path');          
 
-const Conta = require('./models/Conta');
+const Conta = require('./models/conta'); 
 const Usuario = require('./models/Usuario');
 
 const app = express();

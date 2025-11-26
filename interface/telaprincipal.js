@@ -1,16 +1,4 @@
 // ===============================
-// CONFIGURAÇÃO DA API
-// ===============================
-const isLocalHost =
-  window.location.hostname === "localhost" ||
-  window.location.hostname === "127.0.0.1";
-
-const BASE_URL = isLocal
-  ? "http://localhost:3000"
-  : window.location.origin;  // ✔ usa a URL real do Render em produção
-
-
-// ===============================
 // ELEMENTOS DO DOM
 // ===============================
 const mesAtualSpan = document.getElementById("mes-atual");

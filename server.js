@@ -427,7 +427,7 @@ app.post('/usuarios/esqueci-senha', authLimiter, async (req, res) => {
       });
     }
 
-    // 🔐 Gera token de redefinição
+    //  Gera token de redefinição
     const token = crypto.randomBytes(32).toString('hex');
     usuario.resetToken = token;
     usuario.resetTokenExpiracao = Date.now() + 3600000; // 1h
@@ -488,6 +488,11 @@ app.post('/usuarios/redefinir-senha', async (req, res) => {
     console.error('Erro ao redefinir senha:', err);
     res.status(500).json({ sucesso: false, mensagem: 'Erro ao redefinir senha.' });
   }
+});
+
+/* ===================== ROTA RAIZ (LOGIN) ===================== */
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'interface', 'telalogin.html'));
 });
 
 /* ===================== ERRO GLOBAL ===================== */

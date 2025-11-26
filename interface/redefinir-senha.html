@@ -2,41 +2,44 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Redefinir Senha</title>
-  <link rel="stylesheet" href="redefinir-senha.css" />
+
+  <!-- Seu CSS -->
+  <link rel="stylesheet" href="redefinir-senha.css">
 </head>
+
 <body>
   <div class="container">
-    <h1 class="titulo">Redefinir Senha</h1>
+    <h2 class="titulo">Redefinir Senha</h2>
 
     <form id="form-redefinir">
-      <input 
-        type="password" 
-        id="novaSenha" 
-        placeholder="Nova senha" 
-        required 
+      <input
+        type="password"
+        id="novaSenha"
+        placeholder="Digite sua nova senha"
+        required
       />
 
-      <input 
-        type="password" 
-        id="confirmarSenha" 
-        placeholder="Confirmar nova senha" 
-        required 
+      <input
+        type="password"
+        id="confirmarSenha"
+        placeholder="Confirme sua nova senha"
+        required
       />
 
-      <button type="submit" id="btn-redefinir">
-        Redefinir
-      </button>
-
+      <!-- Aqui uso a classe .erro do seu CSS -->
       <p id="mensagem" class="erro"></p>
+
+      <button id="btn-redefinir" type="submit">Redefinir Senha</button>
     </form>
 
-    <p class="link-cadastro">
-      <a href="telalogin.html">Voltar ao Login</a>
-    </p>
+    <div class="link-cadastro">
+      <a href="telalogin.html">Voltar para o login</a>
+    </div>
   </div>
 
+  <script src="config.js"></script>
   <script src="redefinir-senha.js"></script>
 </body>
 </html>

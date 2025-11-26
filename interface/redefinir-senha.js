@@ -1,14 +1,5 @@
-// BASE_URL dinâmica — igual às outras telas
-const isLocal =
-  window.location.hostname === "localhost" ||
-  window.location.hostname === "127.0.0.1";
+// Aqui assumo que BASE_URL já veio do config.js
 
-const BASE_URL = isLocal
-  ? "http://localhost:3000"
-  : window.location.origin;  // ✔ usa a URL real do Render em produção
-
-
-// Pegar token da URL: redefinir-senha.html?token=...
 function obterTokenDaUrl() {
   const params = new URLSearchParams(window.location.search);
   return params.get("token");
@@ -23,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const token = obterTokenDaUrl();
 
-  // Se não tiver token, não deixa redefinir
   if (!token) {
     mensagem.style.color = "red";
     mensagem.textContent =
@@ -67,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const resposta = await fetch(`${BASE_URL}/usuarios/redefinir-senha`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ token, novaSenha }),
+        body: JSON.stringify({ token, novaSenha }), // ou { token, senha: novaSenha }
       });
 
       const dados = await resposta.json().catch(() => ({}));

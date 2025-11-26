@@ -15,8 +15,8 @@ const cors = require('cors');
 const multer = require('multer');      
 const path = require('path');          
 
-const Conta = require('./models/Conta'); 
-const Usuario = require('./models/Usuario');
+const Conta = require('./models/conta'); 
+const Usuario = require('./models/usuario');
 
 const app = express();
 

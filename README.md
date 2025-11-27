@@ -1,25 +1,31 @@
 Financeiro Web
 
-Aplicativo web para gestão financeira pessoal, desenvolvido com Node.js, Express e MongoDB no backend e HTML, CSS e JavaScript no frontend.
-O sistema oferece controle de gastos, autenticação segura e funcionalidades de recuperação de senha.
+Aplicativo web para gestão financeira pessoal, desenvolvido com Node.js, Express e MongoDB no backend, e HTML/CSS/JavaScript no frontend.
+O sistema oferece controle de gastos, gráficos dinâmicos, gerenciamento de perfil, autenticação avançada, recuperação de senha e um módulo completo de segurança com auditoria por logs.
 
 Objetivo do Sistema
 
-O sistema permite que o usuário:
+O Financeiro Web permite que o usuário:
 
-Cadastre uma conta
+Cadastre uma conta.
 
-Realize login
+Realize login com autenticação segura.
 
-Registre e visualize seus gastos
+Mantenha sessão ativa através de Access Token e Refresh Token.
 
-Analise despesas através de gráficos
+Registre gastos financeiros.
 
-Atualize dados de perfil
+Visualize gastos por mês e ano.
 
-Recupere a senha por e-mail
+Analise despesas através de gráficos.
 
-Redefina a senha através de link enviado
+Atualize nome, senha e foto de perfil.
+
+Recupere senha via e-mail.
+
+Redefina a senha por meio de link seguro.
+
+Tenha ações registradas em logs de segurança para auditoria.
 
 Tecnologias Utilizadas
 Frontend
@@ -30,48 +36,55 @@ CSS3
 
 JavaScript
 
-Chart.js (gráficos)
+Chart.js (versão local para compatibilidade com CSP)
 
-Fetch API para comunicação com o backend
+Fetch API
 
 Backend
 
 Node.js
 
-Express.js
+Express
 
-Mongoose (ODM)
+Mongoose
 
-JWT para autenticação
+JWT (Access Token + Refresh Token)
 
-bcrypt para criptografia de senhas
+bcryptjs
 
-Helmet, CORS e rate limiting para segurança
+Helmet
 
-Nodemailer para envio de e-mails de recuperação
+Rate Limiting (express-rate-limit)
 
-Dotenv para variáveis de ambiente
+CORS configurado
+
+Crypto (tokens e criptografia AES quando necessário)
+
+Nodemailer
+
+Dotenv
 
 Banco de Dados
 
-MongoDB (Atlas ou local)
+MongoDB Atlas
+
+Modelos Mongoose
+
+Usuario
+
+Conta
+
+RefreshToken
+
+LogSeguranca
 
 Arquitetura do Sistema
-
-Frontend localizado na pasta /interface contendo páginas HTML, CSS e scripts JS.
-
-Backend em Node.js exposto via API REST.
-
-Banco de dados MongoDB para todas as entidades.
-
-Estrutura de Pastas (resumo)
 financeiro-web/
-├── server.js
+├── server.js                     → Servidor Express principal
 ├── package.json
-├── .env
-├── models/
-│   └── (Modelos Mongoose)
-├── interface/
+├── .env                          → Variáveis de ambiente
+│
+├── interface/                    → Frontend (HTML, CSS, JS)
 │   ├── telalogin.html
 │   ├── cadastro.html
 │   ├── telaprincipal.html
@@ -79,63 +92,135 @@ financeiro-web/
 │   ├── esqueci-senha.html
 │   ├── redefinir-senha.html
 │   ├── *.css
-│   ├── *.js
-│   └── libs/
-│       └── chart.js
+│   └── *.js
+│
+├── models/                       → Modelos do banco
+│   ├── Usuario.js
+│   ├── Conta.js
+│   ├── RefreshToken.js
+│   └── LogSeguranca.js
+│
+├── security/
+│   └── jwt.js                   → Geração e validação de tokens
+│
+└── public/
+    └── uploads/
+        └── usuarios/            → Fotos de perfil
 
 Funcionalidades Principais
 Usuário
 
-Cadastro
+Cadastro de usuário.
 
-Login com JWT
+Login com validação de e-mail e senha.
 
-Atualização de perfil
+Autenticação com JWT (Access Token de curta duração).
 
-Troca de senha autenticada
+Renovação da sessão por Refresh Token.
 
-Esqueci a senha (envio de e-mail com token)
+Logout com revogação do Refresh Token.
 
-Redefinição de senha com token
+Atualização de nome, senha e foto de perfil.
+
+Exclusão de conta.
+
+Recuperação de Senha
+
+Envio de e-mail com link de redefinição.
+
+Token criptográfico de 64 caracteres.
+
+Expiração automática do token após 1 hora.
 
 Gastos
 
-Registro de gastos
+Registro de gastos com valor, categoria, descrição e data.
 
-Listagem por período
+Consulta de gastos por mês e ano.
 
-Visualização por gráfico utilizando Chart.js
+Remoção de gastos.
+
+Gráfico em Pizza com total por categoria.
 
 Segurança
 
-Senhas criptografadas com bcrypt
+Senhas criptografadas com bcrypt.
 
-Sessões com JWT
+JWT com expiração curta e renovação por Refresh Token.
 
-Proteção das rotas com verificação de token
+Refresh Token armazenado no banco com controle de validade.
 
-Helmet e CORS para proteção adicional
+Rate limiting em rotas sensíveis.
 
-Chart.js carregado localmente para evitar violação de Content Security Policy no Render
+Helmet para proteção de cabeçalhos HTTP.
 
-Variáveis de Ambiente
+CORS configurado.
 
-Exemplo de arquivo .env:
+Logs detalhados registrados no MongoDB.
+
+Logs de Segurança
+
+Todas as ações críticas são registradas na coleção logsegurancas.
+
+Ações registradas
+
+LOGIN_SUCESSO
+
+LOGIN_FALHA_EMAIL_INEXISTENTE
+
+LOGIN_FALHA_SENHA_INCORRETA
+
+LOGIN_ERRO_INTERNO
+
+ESQUECI_SENHA
+
+TOKEN_EXPIROU
+
+LOGOUT
+
+Todas as tentativas incorretas de login
+
+Ações administrativas do usuário
+
+Dados armazenados em cada log
+
+userId (quando aplicável)
+
+Ação executada
+
+Endereço IP
+
+Detalhes adicionais
+
+Data e hora (timestamps automáticos)
+
+Esse módulo fornece auditoria, rastreamento e segurança avançada contra acessos indevidos.
+
+Variáveis de Ambiente (.env)
+
+Exemplo:
 
 PORT=3000
-MONGO_URI=sua_string_de_conexao
-JWT_SECRET=seu_token_secreto
-EMAIL_HOST=smtp.seuprovedor.com
-EMAIL_PORT=587
-EMAIL_USER=email
-EMAIL_PASS=senha
-EMAIL_FROM="Financeiro Web <email>"
+
+# Banco de Dados
+MONGO_URI=sua_string_mongodb
+
+# JWT
+JWT_SECRET=chave_access_token
+JWT_REFRESH_SECRET=chave_refresh_token
+
+# AES (caso utilizado)
+AES_SECRET=chave_AES_32_bytes
+
+# Email
+EMAIL_USER=seu_email@gmail.com
+EMAIL_PASS=senha_de_aplicativo_google
 
 Como Executar o Projeto Localmente
 
 Clonar o repositório:
 
-git clone https://github.com/SEU_USUARIO/financeiro-web.git
+git clone https://github.com/otavio1123/financeiro-web.git
 cd financeiro-web
 
 
@@ -144,36 +229,41 @@ Instalar dependências:
 npm install
 
 
-Criar o arquivo .env com suas credenciais.
+Criar o arquivo .env
 
 Iniciar o servidor:
 
 node server.js
 
 
-Acessar a aplicação no navegador:
+Abrir no navegador:
 
 http://localhost:3000/telalogin.html
 
 Deploy no Render
 
-Projeto configurado para hospedagem no Render.
+Todos os arquivos estáticos são servidos de /interface/.
 
-Em produção, a BASE_URL utiliza window.location.origin.
+A base de URLs no frontend usa window.location.origin, permitindo funcionamento em produção.
 
-Todos os arquivos estáticos são servidos pela pasta /interface.
+Chart.js local evita bloqueios por Content Security Policy.
 
-ETAPA 4 — Salvar o arquivo
+Conclusão
 
-Pressione:
+O sistema atende completamente aos requisitos de segurança da disciplina:
 
-Ctrl + S
+Cadastro seguro
 
+Autenticação baseada em JWT
 
-O arquivo README.md agora está pronto no seu projeto.
+Gestão de sessões com Refresh Token
 
-ETAPA 5 — Verificar no Git
+Proteção de dados com bcrypt e boas práticas técnicas
 
-Abra o Git Bash dentro da pasta do projeto e digite:
+Recuperação de credenciais via e-mail
 
-git status
+Logs detalhados e auditoria de eventos
+
+Documentação técnica completa
+
+Arquitetura organizada e modular
